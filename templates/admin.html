@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-square-check"></i>
+                PYTHON (19897) 8:00 - 10:30 MW
+            </div>
+            <ul class="menu-items">
+                <li><a href="#" class="active"><i class="fa-regular fa-user"></i> User Management</a></li>
+                <li><a href="#"><i class="fa-solid fa-user-graduate"></i> Student Management</a></li>
+                <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Attendance</a></li>
+                <li class="logout-link"><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>USER MANAGEMENT</h2>
+                <a href="#" class="logout-btn">LOGOUT</a>
+            </header>
+
+            <div class="content-wrapper">
+                
+                <div class="card form-card">
+                    <div class="card-header">
+                        <h3><i class="fa-regular fa-pen-to-square"></i> USER MANAGEMENT</h3>
+                        <i class="fa-solid fa-bars" style="color: #999;"></i>
+                    </div>
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label>User</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password">
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-save">SAVE</button>
+                            <button class="btn btn-cancel">CANCEL</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card table-card">
+                    <div class="table-header-blue">
+                        <h3>USER LIST</h3>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr class="table-list-header">
+                                    <th>ID</th>
+                                    <th>EMAIL</th>
+                                    <th>PASSWORD</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>govan@gmail.com</td>
+                                    <td>B675</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-pen"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>hadilltes@gmail.com</td>
+                                    <td>B5F6</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-pen"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>motda1@gmail.com</td>
+                                    <td>B578</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-pen"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>gaten@gmail.com</td>
+                                    <td>B5F5</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-pen"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>hojelles@gmail.com</td>
+                                    <td>B576</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-pen"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer">
+                © GOVAN P. BADILLES, 2025
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

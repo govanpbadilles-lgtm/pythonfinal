@@ -1,0 +1,150 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+.container {
+    width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* --- Header Styling --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212F44; /* Dark blue */
+    color: white;
+    padding: 10px 15px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.header-login-btn {
+    background-color: #4A89DC; /* Blue login button */
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none; /* For the link in index.html */
+}
+
+/* --- Content Styling --- */
+.content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* --- Login View Styling (Used in login.html) --- */
+.user-icon {
+    font-size: 40px;
+    color: #212F44;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 30px;
+    line-height: 1;
+    display: inline-block;
+    /* User icon SVG placeholder */
+    width: 40px; 
+    height: 40px; 
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23212F44"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') no-repeat center center;
+    background-size: 80%;
+    box-sizing: content-box;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn {
+    flex-grow: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-register {
+    background-color: white;
+    color: #666;
+    border: 1px solid #ccc;
+}
+
+.btn-login {
+    background-color: #4A89DC; /* Blue */
+    color: white;
+}
+
+/* --- QR Reader Styling (Used in index.html) --- */
+.qr-reader-container {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.qr-code-placeholder {
+    width: 150px;
+    height: 150px;
+    /* QR code SVG placeholder */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="%23212F44"/><rect x="20" y="20" width="10" height="10" fill="white"/><rect x="70" y="20" width="10" height="10" fill="white"/><rect x="20" y="70" width="10" height="10" fill="white"/><path d="M45 45h10v10H45z" fill="white"/><path d="M50 50l-5-5h10z" fill="white"/></svg>') no-repeat center center;
+    background-size: 100%;
+}
+
+.qr-text {
+    color: #777;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+
+/* --- Footer/Copyright Styling --- */
+.copyright {
+    margin-top: 40px;
+    color: #999;
+    font-size: 12px;
+    padding-bottom: 20px;
+}

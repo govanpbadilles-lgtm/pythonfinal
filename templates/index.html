@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python (19877) 8:00 - 10:30</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span>PYTHON (19877) 8:00 - 10:30 MW</span>
+        <a href="{{ url_for('login_page') }}" class="header-login-btn">LOGIN</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <p class="flash {{ category }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="content">
+        <div class="qr-view">
+            <span class="qr-text">qr reader</span>
+            <div class="qr-reader-container">
+                <div class="qr-code-placeholder" aria-label="QR Code"></div>
+            </div>
+        </div>
+
+        <p class="copyright">copyright © Badilles Antique</p>
+    </div>
+</div>
+
+</body>
+</html>
