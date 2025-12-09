@@ -17,17 +17,17 @@
                 PYTHON (19897) 8:00 - 10:30 MW
             </div>
             <ul class="menu-items">
-                <li><a href="#" class="active"><i class="fa-regular fa-user"></i> User Management</a></li>
-                <li><a href="#"><i class="fa-solid fa-user-graduate"></i> Student Management</a></li>
+                <li><a href="{{ url_for('admin_dashboard') }}" class="active"><i class="fa-regular fa-user"></i> User Management</a></li>
+                <li><a href="{{ url_for('student_management') }}"><i class="fa-solid fa-user-graduate"></i> Student Management</a></li>
                 <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Attendance</a></li>
-                <li class="logout-link"><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+                <li class="logout-link"><a href="{{ url_for('logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
             </ul>
         </nav>
 
         <main class="main-content">
             <header class="top-header">
                 <h2>USER MANAGEMENT</h2>
-                <a href="#" class="logout-btn">LOGOUT</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">LOGOUT</a>
             </header>
 
             <div class="content-wrapper">
@@ -40,16 +40,15 @@
 
                     <div class="form-body">
                         <div class="form-group">
-                            <label>User</label>
-                            <input type="text">
-                        </div>
-                        <div class="form-group">
                             <label>Email</label>
                             <input type="email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password">
+                            <div style="position: relative;">
+                                <input type="password" id="passwordField" style="padding-right: 40px;">
+                                <i class="fa-solid fa-eye" id="togglePassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #999;"></i>
+                            </div>
                         </div>
 
                         <div class="form-actions">
@@ -79,8 +78,8 @@
                                     <td>govan@gmail.com</td>
                                     <td>B675</td>
                                     <td class="action-icons">
-                                        <i class="fa-solid fa-pen"></i>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -88,8 +87,8 @@
                                     <td>hadilltes@gmail.com</td>
                                     <td>B5F6</td>
                                     <td class="action-icons">
-                                        <i class="fa-solid fa-pen"></i>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -97,8 +96,8 @@
                                     <td>motda1@gmail.com</td>
                                     <td>B578</td>
                                     <td class="action-icons">
-                                        <i class="fa-solid fa-pen"></i>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,8 +105,8 @@
                                     <td>gaten@gmail.com</td>
                                     <td>B5F5</td>
                                     <td class="action-icons">
-                                        <i class="fa-solid fa-pen"></i>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -115,8 +114,8 @@
                                     <td>hojelles@gmail.com</td>
                                     <td>B576</td>
                                     <td class="action-icons">
-                                        <i class="fa-solid fa-pen"></i>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
                                     </td>
                                 </tr>
                             </tbody>
@@ -127,10 +126,11 @@
             </div>
             
             <div class="footer">
-                © GOVAN P. BADILLES, 2025
+                © GOVAN P. BADILLES & RONAN G. ANTOQUE, 2025
             </div>
         </main>
     </div>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
 
 </body>
 </html>
