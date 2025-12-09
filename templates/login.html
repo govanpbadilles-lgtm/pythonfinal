@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Class - Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
+
 <body>
 
 <div class="container">
     <div class="header">
         <span>PYTHON (19877) 8:00 - 10:30 MW</span>
-        <a href="{{ url_for('login_page') }}" ></a>
     </div>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -27,14 +26,15 @@
 
     <div class="content">
         <div class="login-view">
-            <div class="user-icon" aria-label="User Icon"></div>
+            <div class="user-icon"></div>
 
-            <form action="{{ url_for('login_page') }}" method="POST" style="width: 100%;">
+            <form action="{{ url_for('login') }}" method="POST" style="width: 100%;">
+                
                 <input type="email" name="email" class="input-field" placeholder="EMAIL" required>
                 <input type="password" name="password" class="input-field" placeholder="PASSWORD" required>
 
                 <div class="button-group">
-                    <button type="button" class="btn btn-register">Register</button>
+                    <a href="{{ url_for('register') }}" class="btn btn-register" style="text-decoration: none;">Register</a>
                     <button type="submit" class="btn btn-login">LOGIN</button>
                 </div>
             </form>
@@ -43,6 +43,8 @@
         <p class="copyright">copyright © Badilles Antique</p>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
 
 </body>
 </html>
