@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Class - Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span>PYTHON (19877) 8:00 - 10:30 MW</span>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <p class="flash {{ category }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="content">
+        <div class="login-view">
+            <div class="user-icon" aria-label="User Icon"></div>
+
+            <form action="{{ url_for('register') }}" method="POST" style="width: 100%;">
+                
+
+                <input type="email" name="email" class="input-field" placeholder="EMAIL" required>
+
+                <input type="password" name="password" class="input-field" placeholder="PASSWORD" required>
+
+                <input type="password" name="confirm_password" class="input-field" placeholder="CONFIRM PASSWORD" required>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-login">REGISTER</button>
+                    <a href="{{ url_for('login') }}" class="btn btn-register" style="text-align:center;">BACK</a>
+                </div>
+            </form>
+        </div>
+
+        <p class="copyright">copyright © Badilles Antique</p>
+    </div>
+</div>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+</body>
+</html>

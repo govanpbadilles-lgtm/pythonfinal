@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-square-check"></i>
+                PYTHON (19897) 8:00 - 10:30 MW
+            </div>
+            <ul class="menu-items">
+                <li><a href="{{ url_for('admin_dashboard') }}"><i class="fa-regular fa-user"></i> User Management</a></li>
+                <li><a href="{{ url_for('student_management') }}" class="active"><i class="fa-solid fa-user-graduate"></i> Student Management</a></li>
+                <li><a href="{{ url_for('attendance') }}"><i class="fa-solid fa-clipboard-list"></i> Attendance</a></li>
+                <li class="logout-link"><a href="{{ url_for('logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>STUDENT MANAGEMENT</h2>
+                <a href="{{ url_for('logout') }}" class="logout-btn">LOGOUT</a>
+            </header>
+
+            <div class="content-wrapper" style="display: flex; gap: 20px;">
+                
+                <!-- Left Side: Student Form (Cover View / Print) -->
+                <div class="card form-card" style="flex: 1; min-width: 300px;">
+                    <div class="card-header">
+                        <h3><i class="fa-regular fa-pen-to-square"></i> STUDENT FORM</h3>
+                    </div>
+
+                    <div class="form-body" style="text-align: center; padding: 20px;">
+                        <!-- Student Avatar -->
+                        <div style="margin: 20px auto 30px;">
+                            <div id="studentAvatar" class="user-icon" style="width: 120px; height: 120px; border-radius: 50%; background: #e0e0e0; margin: 0 auto; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 3px solid #ddd;">
+                                <i class="fa-solid fa-user" id="defaultIcon" style="font-size: 60px; color: #999;"></i>
+                            </div>
+                        </div>
+
+                        <!-- Form Fields -->
+                        <div style="text-align: left;">
+                            <div class="form-group">
+                                <label>ID</label>
+                                <input type="text" id="studentName" placeholder="Student ID" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Lastname</label>
+                                <input type="text" id="studentLastname" placeholder="Last Name" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Firstname</label>
+                                <input type="text" id="studentFirstname" placeholder="First Name" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Course</label>
+                                <select id="studentCourse" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" disabled>
+                                    <option value="">Select Course</option>
+                                    <option value="BSCS">BSCS</option>
+                                    <option value="BSIT">BSIT</option>
+                                    <option value="BSIS">BSIS</option>
+                                    <option value="BSEMC">BSEMC</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Level</label>
+                                <select id="studentLevel" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" disabled>
+                                    <option value="">Select Level</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-save" id="editBtn" style="width: 100%; background: #4CAF50;" disabled>EDIT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Student Table -->
+                <div class="card table-card" style="flex: 2;">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-user-graduate"></i> STUDENT LIST</h3>
+                        <button class="btn-add" id="addStudentBtn" style="background: #4CAF50; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer;">
+                            <i class="fa-solid fa-plus"></i> ADD
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr class="table-list-header">
+                                    <th>ID</th>
+                                    <th>NAME</th>
+                                    <th>LASTNAME</th>
+                                    <th>FIRSTNAME</th>
+                                    <th>COURSE</th>
+                                    <th>YEAR</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>Doe</td>
+                                    <td>John</td>
+                                    <td>BSCS</td>
+                                    <td>3</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-eye view-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jane Smith</td>
+                                    <td>Smith</td>
+                                    <td>Jane</td>
+                                    <td>BSIT</td>
+                                    <td>2</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-eye view-icon"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Mike Johnson</td>
+                                    <td>Johnson</td>
+                                    <td>Mike</td>
+                                    <td>BSCS</td>
+                                    <td>4</td>
+                                    <td class="action-icons">
+                                        <i class="fa-solid fa-eye view-icon"></i>
+                                        <i class="fa-solid fa-pen edit-icon"></i>
+                                        <i class="fa-solid fa-trash delete-icon"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer">
+                © GOVAN P. BADILLES, 2025
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/student.js') }}"></script>
+
+</body>
+</html>
